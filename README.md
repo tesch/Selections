@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Logo.png" width="250"/>
+    <img src="Logo.png" width="250", max-width="100%"/>
 </p>
 
 **Selections** is a Mac utility for selecting items in Finder via regular expression matching. It can be used as a search tool, to quickly move a set of files, or to bulk apply contextual menu items such as cloud sync options, for example.
@@ -13,5 +13,5 @@ Enter a search term into the lower text field for the items you wish to select. 
 *Undo* and *Redo* are supported for both text fields, maintaing their history even after loosing focus. Creating multiple windows works as well.
 
 <p align="center">
-    <img src="Demo.gif" width="800"/>
+    <img src="Demo.gif" width="800", max-width="100%"/>
 </p>
