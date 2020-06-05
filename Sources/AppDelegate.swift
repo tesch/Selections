@@ -11,7 +11,10 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        UserDefaults.standard.set(true, forKey: "NSDisabledDictationMenuItem")
+        UserDefaults.standard.set(true, forKey: "NSDisabledCharacterPaletteMenuItem")
 
+        UserDefaults.standard.set(false, forKey: "NSFullScreenMenuItemEverywhere")
     }
 
     func applicationWillTerminate(_ notification: Notification) {
