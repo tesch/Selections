@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +15,16 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Selections" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="Hide" keyEquivalent="h" id="utC-d8-jAB"/>
-                                        <menuItem title="Quit" keyEquivalent="q" id="zrd-Y1-04Y"/>
+                                        <menuItem title="Hide" keyEquivalent="h" id="utC-d8-jAB">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="XQe-hj-Sbz"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Quit" keyEquivalent="q" id="zrd-Y1-04Y">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="YdL-dq-dwa"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -24,12 +32,28 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New Window" keyEquivalent="n" id="weG-rc-CkE"/>
+                                        <menuItem title="New Window" keyEquivalent="n" id="weG-rc-CkE">
+                                            <connections>
+                                                <action selector="createWindow:" target="Ady-hI-5gd" id="gaD-k4-yDS"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="cJF-El-b55"/>
-                                        <menuItem title="Open…" keyEquivalent="o" id="quH-Oh-TTf"/>
+                                        <menuItem title="Open…" keyEquivalent="o" id="quH-Oh-TTf">
+                                            <connections>
+                                                <action selector="selectDirectory:" target="Ady-hI-5gd" id="kqr-gx-yS5"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="waA-AL-a43"/>
-                                        <menuItem title="Close Window" keyEquivalent="w" id="xnj-Me-78N"/>
-                                        <menuItem title="Close All Windows" keyEquivalent="W" id="kgI-lP-Wg9"/>
+                                        <menuItem title="Close Window" keyEquivalent="w" id="xnj-Me-78N">
+                                            <connections>
+                                                <action selector="closeWindow:" target="Ady-hI-5gd" id="U32-BU-OFe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close All Windows" keyEquivalent="W" id="kgI-lP-Wg9">
+                                            <connections>
+                                                <action selector="closeAllWindows:" target="Ady-hI-5gd" id="8vf-1O-CV5"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -37,15 +61,43 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Edit" id="W48-6f-4Dl">
                                     <items>
-                                        <menuItem title="Select…" keyEquivalent="r" id="OAb-wi-rEO"/>
+                                        <menuItem title="Select…" keyEquivalent="r" id="OAb-wi-rEO">
+                                            <connections>
+                                                <action selector="createSelection:" target="Ady-hI-5gd" id="nma-tJ-hfb"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="3Oo-dz-bEE"/>
-                                        <menuItem title="Undo" keyEquivalent="z" id="epX-ov-eUR"/>
-                                        <menuItem title="Redo" keyEquivalent="Z" id="Jhd-9g-fHd"/>
+                                        <menuItem title="Undo" keyEquivalent="z" id="epX-ov-eUR">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="XqE-fq-eDR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="Jhd-9g-fHd">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="B5k-e7-xoW"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="YbN-Vw-V3B"/>
-                                        <menuItem title="Cut" keyEquivalent="x" id="1ca-Br-2YL"/>
-                                        <menuItem title="Copy" keyEquivalent="c" id="smS-fH-Nj1"/>
-                                        <menuItem title="Paste" keyEquivalent="v" id="9w8-a8-ayY"/>
-                                        <menuItem title="Select All" keyEquivalent="a" id="qE9-hD-r0S"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="1ca-Br-2YL">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="RnY-88-hNY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="smS-fH-Nj1">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="NWI-aS-n6y"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="9w8-a8-ayY">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="9Ji-MP-qHU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="qE9-hD-r0S">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="8eE-d0-5b7"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -55,6 +107,9 @@
                                     <items>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="qYM-j8-0Ux">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="zoom:" target="Ady-hI-5gd" id="qjg-Pz-EGE"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -63,7 +118,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" id="EQ0-If-eFc">
                                     <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="j2D-M0-VqS"/>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="j2D-M0-VqS">
+                                            <connections>
+                                                <action selector="miniaturize:" target="Ady-hI-5gd" id="W88-Yp-YmY"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -82,7 +141,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Window" id="B8D-0N-5wS" customClass="WindowController" customModule="Selections" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Selections" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
@@ -110,7 +169,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="95"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField toolTip="Path to Directory" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sId-3H-8Xb">
+                            <textField toolTip="Path to Directory" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sId-3H-8Xb" customClass="PathField" customModule="Selections" customModuleProvider="target">
                                 <rect key="frame" x="15" y="55" width="485" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" title="~/" bezelStyle="round" id="9JK-m5-Bbc">
@@ -118,8 +177,11 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="Aec-QF-Tad"/>
+                                </connections>
                             </textField>
-                            <textField toolTip="Regular Expression" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOl-ji-M6Q">
+                            <textField toolTip="Regular Expression" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOl-ji-M6Q" customClass="TextField" customModule="Selections" customModuleProvider="target">
                                 <rect key="frame" x="15" y="15" width="485" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" bezelStyle="round" id="p3x-e5-hNL">
@@ -127,6 +189,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="createSelection:" target="XfG-lQ-9wD" id="BE3-DK-xdT"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M36-hJ-bw3">
                                 <rect key="frame" x="509" y="50" width="82" height="32"/>
@@ -135,6 +200,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="selectDirectory:" target="XfG-lQ-9wD" id="UCu-Es-7dk"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gIO-N5-h2I">
                                 <rect key="frame" x="509" y="10" width="82" height="32"/>
@@ -143,9 +211,16 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="createSelection:" target="XfG-lQ-9wD" id="VdT-Tb-Wcv"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="pathField" destination="sId-3H-8Xb" id="2NL-Fb-8uh"/>
+                        <outlet property="patternField" destination="DOl-ji-M6Q" id="yMg-4R-GnC"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
