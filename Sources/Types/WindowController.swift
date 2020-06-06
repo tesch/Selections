@@ -9,22 +9,6 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
-    var fieldEditor: FieldEditor?
-
-    func windowWillReturnFieldEditor(_ sender: NSWindow, to client: Any?) -> Any? {
-        if fieldEditor == nil {
-            fieldEditor = .init()
-
-            fieldEditor?.isFieldEditor = true
-        }
-
-        return fieldEditor
-    }
-
-}
-
-extension WindowController: NSDraggingDestination {
-
     override var window: NSWindow? {
         didSet {
             window?.registerForDraggedTypes([.fileURL])
