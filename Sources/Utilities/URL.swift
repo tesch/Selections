@@ -41,6 +41,14 @@ extension URL {
 
 extension URL {
 
+    var isHidden: Bool { (try? resourceValues(forKeys: [.isHiddenKey]))?.isHidden == true }
+
+    var isVisible: Bool { !isHidden }
+
+}
+
+extension URL {
+
     var contentsOfDirectory: Array<Self>? { try? FileManager.default.contentsOfDirectory(at: resolvingAliasesInPath(), includingPropertiesForKeys: [], options: []) }
 
     var directoriesInDirectory: Array<Self>? { contentsOfDirectory?.filter(\.resolvesToDirectoryPath) }

@@ -50,7 +50,7 @@ extension ViewController {
     }
 
     @IBAction func createSelection(_ sender: Any) {
-        guard let contents = pathField.url?.contentsOfDirectory else {
+        guard let contents = pathField.url?.contentsOfDirectory?.filter(\.isVisible) else {
             showAlert(title: "Invalid Path", text: "The given path does not correspond to an existing directory.", style: .critical)
 
             return
