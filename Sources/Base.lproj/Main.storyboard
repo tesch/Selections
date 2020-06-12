@@ -99,6 +99,8 @@
                                                 <action selector="selectAll:" target="Ady-hI-5gd" id="8eE-d0-5b7"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="w10-Vw-UzQ"/>
+                                        <menuItem title="Include Hidden Files" keyEquivalent="H" id="L7K-ek-dFo" customClass="HiddenFilesMenuItem" customModule="Selections" customModuleProvider="target"/>
                                     </items>
                                 </menu>
                             </menuItem>

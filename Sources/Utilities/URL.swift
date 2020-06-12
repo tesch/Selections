@@ -49,9 +49,13 @@ extension URL {
 
 extension URL {
 
-    var contentsOfDirectory: Array<Self>? { try? FileManager.default.contentsOfDirectory(at: resolvingAliasesInPath(), includingPropertiesForKeys: [], options: []) }
+    func contentsOfDirectory(includeHiddenFiles: Bool = true) -> Array<Self>? {
+        guard let contents = try? FileManager.default.contentsOfDirectory(at: resolvingAliasesInPath(), includingPropertiesForKeys: [], options: []) else { return nil }
 
-    var directoriesInDirectory: Array<Self>? { contentsOfDirectory?.filter(\.resolvesToDirectoryPath) }
+        return includeHiddenFiles ? contents : contents.filter(\.isVisible)
+    }
+
+    var directoriesInDirectory: Array<Self>? { contentsOfDirectory()?.filter(\.resolvesToDirectoryPath) }
 
 }
 
@@ -61,7 +65,7 @@ extension URL {
         return (Self(fileURLWithPath: "/" + pathComponents.dropFirst().dropLast().joined(separator: "/")), lastPathComponent)
     }
 
-    func predictDirectoryPaths(hasTrailingSlash: Bool) -> (prefix: String, prediction: String, completions: Array<String>) {
+    func predictDirectoryPaths(hasTrailingSlash: Bool, includeHiddenFiles: Bool = true) -> (prefix: String, prediction: String, completions: Array<String>) {
         let (url, prefix) = hasTrailingSlash ? (self, "") : splitLastPathComponent()
 
         let directories = url.directoriesInDirectory ?? []
@@ -69,7 +73,7 @@ extension URL {
         let components = directories.map(\.lastPathComponent) + [".", ".."]
 
         let completions = components.compactMap { value in value.deletingPrefix(prefix) }.filter { value in
-            if hasTrailingSlash {
+            if hasTrailingSlash, !includeHiddenFiles {
                 return !value.hasPrefix(".")
             }
 

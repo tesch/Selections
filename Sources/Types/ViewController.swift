@@ -50,7 +50,7 @@ extension ViewController {
     }
 
     @IBAction func createSelection(_ sender: Any) {
-        guard let contents = pathField.url?.contentsOfDirectory?.filter(\.isVisible) else {
+        guard let contents = pathField.url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles) else {
             showAlert(title: "Invalid Path", text: "The given path does not correspond to an existing directory.", style: .critical)
 
             return
@@ -110,7 +110,7 @@ extension ViewController {
             pathField.updatePartialString { prefixPath, suffixPath in
                 guard let url = URL(fileURLWithAbsolutePath: prefixPath.expandingTilde) else { return "" }
 
-                let (prefix, prediction, completions) = url.predictDirectoryPaths(hasTrailingSlash: prefixPath.hasSuffix("/"))
+                let (prefix, prediction, completions) = url.predictDirectoryPaths(hasTrailingSlash: prefixPath.hasSuffix("/"), includeHiddenFiles: Preferences.includeHiddenFiles)
 
                 let suffix = suffixPath.hasPrefix("/") ? "" : "/"
 

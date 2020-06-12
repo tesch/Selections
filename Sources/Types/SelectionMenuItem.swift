@@ -1,5 +1,5 @@
 //
-// MenuItem.swift
+// SelectionMenuItem.swift
 //
 // Created by Marcel Tesch on 2020-06-05.
 // Think different.
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class MenuItem: NSMenuItem {
+class SelectionMenuItem: NSMenuItem {
 
     private var block: (() -> ())?
 
@@ -17,7 +17,7 @@ class MenuItem: NSMenuItem {
 
 }
 
-extension MenuItem {
+extension SelectionMenuItem {
 
     func setAction(_ block: @escaping () -> ()) {
         self.block = block

@@ -16,7 +16,7 @@ class SelectionMenu<Element>: NSMenu {
 extension SelectionMenu {
 
     func addItem(title: NSAttributedString, value: Element) {
-        let item = MenuItem()
+        let item = SelectionMenuItem()
 
         item.attributedTitle = title
 

@@ -22,8 +22,10 @@
 		AA63C42F248AD6CE00AAF274 /* FieldEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */; };
 		AA63C431248AD6DD00AAF274 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C430248AD6DD00AAF274 /* TextField.swift */; };
 		AA63C433248AD6F300AAF274 /* PathField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C432248AD6F300AAF274 /* PathField.swift */; };
-		AA63C435248AD70700AAF274 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C434248AD70700AAF274 /* MenuItem.swift */; };
+		AA63C435248AD70700AAF274 /* SelectionMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C434248AD70700AAF274 /* SelectionMenuItem.swift */; };
 		AA63C437248AD71E00AAF274 /* SelectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C436248AD71E00AAF274 /* SelectionMenu.swift */; };
+		AA8580802493DB0C009DDE6F /* HiddenFilesMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA85807F2493DB0C009DDE6F /* HiddenFilesMenuItem.swift */; };
+		AA8580822493E1D2009DDE6F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8580812493E1D2009DDE6F /* Preferences.swift */; };
 		AAFD62AB248C31B800311DE3 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +48,10 @@
 		AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldEditor.swift; sourceTree = "<group>"; };
 		AA63C430248AD6DD00AAF274 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		AA63C432248AD6F300AAF274 /* PathField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathField.swift; sourceTree = "<group>"; };
-		AA63C434248AD70700AAF274 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		AA63C434248AD70700AAF274 /* SelectionMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuItem.swift; sourceTree = "<group>"; };
 		AA63C436248AD71E00AAF274 /* SelectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenu.swift; sourceTree = "<group>"; };
+		AA85807F2493DB0C009DDE6F /* HiddenFilesMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenFilesMenuItem.swift; sourceTree = "<group>"; };
+		AA8580812493E1D2009DDE6F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,13 +99,15 @@
 		AA63C41C248AD55800AAF274 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				AA8580812493E1D2009DDE6F /* Preferences.swift */,
 				AA63C42A248AD68A00AAF274 /* WindowManager.swift */,
 				AA63C42C248AD6B900AAF274 /* WindowController.swift */,
 				AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */,
 				AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */,
 				AA63C430248AD6DD00AAF274 /* TextField.swift */,
 				AA63C432248AD6F300AAF274 /* PathField.swift */,
-				AA63C434248AD70700AAF274 /* MenuItem.swift */,
+				AA85807F2493DB0C009DDE6F /* HiddenFilesMenuItem.swift */,
+				AA63C434248AD70700AAF274 /* SelectionMenuItem.swift */,
 				AA63C436248AD71E00AAF274 /* SelectionMenu.swift */,
 				AA491D33248AC2D300F4C4E2 /* ViewController.swift */,
 			);
@@ -194,12 +200,14 @@
 				AA63C425248AD5C600AAF274 /* String.swift in Sources */,
 				AA63C42D248AD6B900AAF274 /* WindowController.swift in Sources */,
 				AA63C423248AD5A800AAF274 /* URL.swift in Sources */,
+				AA8580802493DB0C009DDE6F /* HiddenFilesMenuItem.swift in Sources */,
 				AA63C431248AD6DD00AAF274 /* TextField.swift in Sources */,
 				AA63C427248AD5DC00AAF274 /* Sequence.swift in Sources */,
 				AAFD62AB248C31B800311DE3 /* TextFieldCell.swift in Sources */,
 				AA491D34248AC2D300F4C4E2 /* ViewController.swift in Sources */,
+				AA8580822493E1D2009DDE6F /* Preferences.swift in Sources */,
 				AA491D32248AC2D300F4C4E2 /* AppDelegate.swift in Sources */,
-				AA63C435248AD70700AAF274 /* MenuItem.swift in Sources */,
+				AA63C435248AD70700AAF274 /* SelectionMenuItem.swift in Sources */,
 				AA63C437248AD71E00AAF274 /* SelectionMenu.swift in Sources */,
 				AA63C42B248AD68A00AAF274 /* WindowManager.swift in Sources */,
 				AA63C421248AD59500AAF274 /* NSTextField.swift in Sources */,
