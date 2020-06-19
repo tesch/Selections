@@ -11,7 +11,7 @@ class WindowManager {
 
     let storyboard: NSStoryboard = .init(name: "Main", bundle: nil)
 
-    var controllers: Array<NSWindowController> = []
+    var controllers: Array<(controller: NSWindowController, type: WindowType)> = []
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -21,42 +21,71 @@ class WindowManager {
 
 extension WindowManager {
 
-    func registerController(_ controller: NSWindowController) {
-        NotificationCenter.default.addObserver(self, selector: #selector(closeWindow), name: NSWindow.willCloseNotification, object: controller.window)
+    private func contains(_ controller: NSWindowController) -> Bool {
+        return controllers.contains { value, _ in value == controller }
     }
 
-    func unregisterController(_ controller: NSWindowController) {
-        NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: controller.window)
+    private func index(of controller: NSWindowController) -> Int? {
+        return controllers.firstIndex { value, _ in value == controller }
     }
 
 }
 
 extension WindowManager {
 
-    func createController() -> NSWindowController {
-        guard let controller = storyboard.instantiateController(withIdentifier: "Window") as? NSWindowController else { fatalError() }
+    func registerController(_ controller: NSWindowController, ofType type: WindowType) {
+        if !contains(controller) {
+            NotificationCenter.default.addObserver(self, selector: #selector(closeWindow), name: NSWindow.willCloseNotification, object: controller.window)
 
-        if let frame = NSApp.mainWindow?.frame {
-            let point = NSPoint(x: frame.minX, y: frame.minY - 15)
-
-            controller.window?.cascadeTopLeft(from: point)
+            controllers.append((controller, type))
         }
+    }
+
+    func unregisterController(_ controller: NSWindowController) {
+        if let index = index(of: controller) {
+            NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: controller.window)
+
+            controllers.remove(at: index)
+        }
+    }
+
+}
+
+extension WindowManager {
+
+    private func instantiateController(ofType type: WindowType) -> NSWindowController {
+        guard let controller = storyboard.instantiateController(withIdentifier: type.rawValue) as? NSWindowController else { fatalError() }
 
         return controller
     }
 
+    func createController(ofType type: WindowType) -> NSWindowController {
+        switch type {
+        case .regular:
+            let controller = instantiateController(ofType: .regular)
+
+            if let frame = NSApp.mainWindow?.frame {
+                let point = NSPoint(x: frame.minX, y: frame.minY - 15)
+
+                controller.window?.cascadeTopLeft(from: point)
+            }
+
+            return controller
+        case .about:
+            let result = controllers.first { _, value in value == .about }
+
+            return result?.controller ?? instantiateController(ofType: .about)
+        }
+    }
+
 }
 
 extension WindowManager {
 
-    func createWindow() {
-        let controller = createController()
+    func createWindow(ofType type: WindowType) {
+        let controller = createController(ofType: type)
 
-        registerController(controller)
-
-        if !controllers.contains(controller) {
-            controllers.append(controller)
-        }
+        registerController(controller, ofType: type)
 
         controller.showWindow(nil)
     }
@@ -67,20 +96,14 @@ extension WindowManager {
         unregisterController(controller)
 
         controller.close()
-
-        if let index = controllers.firstIndex(of: controller) {
-            controllers.remove(at: index)
-        }
     }
 
     func closeAllWindows() {
-        for controller in controllers {
+        for (controller, _) in controllers {
             unregisterController(controller)
 
             controller.close()
         }
-
-        controllers = []
     }
 
 }

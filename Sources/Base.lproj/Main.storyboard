@@ -16,6 +16,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Selections" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
+                                        <menuItem title="About Selections" id="Q5J-Ye-CdK">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showAboutWindow:" target="Ady-hI-5gd" id="Zr9-gg-eGj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="9Rq-JW-dC7"/>
                                         <menuItem title="Hide" keyEquivalent="h" id="utC-d8-jAB">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="XQe-hj-Sbz"/>
@@ -144,7 +151,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="Window" id="B8D-0N-5wS" customClass="WindowController" customModule="Selections" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Regular" id="B8D-0N-5wS" customClass="WindowController" customModule="Selections" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Selections" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
@@ -163,6 +170,78 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="LEW-iR-DFP">
+            <objects>
+                <windowController storyboardIdentifier="About" id="W5C-6O-QPq" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="1tN-HB-jBz">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="294" y="372" width="300" height="190"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
+                        <connections>
+                            <outlet property="delegate" destination="W5C-6O-QPq" id="NVt-DZ-mPp"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="pB8-P5-xtx" kind="relationship" relationship="window.shadowedContentViewController" id="fsM-xC-1Un"/>
+                    </connections>
+                </windowController>
+                <customObject id="3bo-Nw-LJJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="297"/>
+        </scene>
+        <!--About Controller-->
+        <scene sceneID="fcx-4W-hNa">
+            <objects>
+                <viewController id="pB8-P5-xtx" customClass="AboutController" customModule="Selections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="VCX-xL-eIH">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="190"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Pu-h5-Gpd">
+                                <rect key="frame" x="90" y="70" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="yDp-rU-e8K"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJE-c4-VDe">
+                                <rect key="frame" x="88" y="50" width="124" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Selections" id="NdE-dD-uZQ">
+                                    <font key="font" metaFont="systemBold" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yn-4q-YiK">
+                                <rect key="frame" x="88" y="25" width="124" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="by Marcel Tesch" id="l36-66-bwn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fps-Hb-KkS">
+                                <rect key="frame" x="262" y="11" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mJ7-BM-QCE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showInfo:" target="zoK-8e-KSj" id="UHy-7T-ATB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="3Yn-4q-YiK" id="Fwq-zG-coD"/>
+                    </connections>
+                </viewController>
+                <customObject id="zoK-8e-KSj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="702"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -230,4 +309,7 @@
             <point key="canvasLocation" x="75" y="654.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="1280" height="1280"/>
+    </resources>
 </document>

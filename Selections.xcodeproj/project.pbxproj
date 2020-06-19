@@ -26,6 +26,7 @@
 		AA63C437248AD71E00AAF274 /* SelectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C436248AD71E00AAF274 /* SelectionMenu.swift */; };
 		AA8580802493DB0C009DDE6F /* HiddenFilesMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA85807F2493DB0C009DDE6F /* HiddenFilesMenuItem.swift */; };
 		AA8580822493E1D2009DDE6F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8580812493E1D2009DDE6F /* Preferences.swift */; };
+		AAF80B1F249CC0B800DF9543 /* WindowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF80B1E249CC0B800DF9543 /* WindowType.swift */; };
 		AAFD62AB248C31B800311DE3 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		AA63C436248AD71E00AAF274 /* SelectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenu.swift; sourceTree = "<group>"; };
 		AA85807F2493DB0C009DDE6F /* HiddenFilesMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenFilesMenuItem.swift; sourceTree = "<group>"; };
 		AA8580812493E1D2009DDE6F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		AAF80B1E249CC0B800DF9543 /* WindowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowType.swift; sourceTree = "<group>"; };
 		AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8580812493E1D2009DDE6F /* Preferences.swift */,
+				AAF80B1E249CC0B800DF9543 /* WindowType.swift */,
 				AA63C42A248AD68A00AAF274 /* WindowManager.swift */,
 				AA63C42C248AD6B900AAF274 /* WindowController.swift */,
 				AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */,
@@ -209,6 +212,7 @@
 				AA491D32248AC2D300F4C4E2 /* AppDelegate.swift in Sources */,
 				AA63C435248AD70700AAF274 /* SelectionMenuItem.swift in Sources */,
 				AA63C437248AD71E00AAF274 /* SelectionMenu.swift in Sources */,
+				AAF80B1F249CC0B800DF9543 /* WindowType.swift in Sources */,
 				AA63C42B248AD68A00AAF274 /* WindowManager.swift in Sources */,
 				AA63C421248AD59500AAF274 /* NSTextField.swift in Sources */,
 				AA63C41F248AD58100AAF274 /* NSTextView.swift in Sources */,
