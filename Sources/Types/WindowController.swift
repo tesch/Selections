@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class WindowController: NSWindowController, NSWindowDelegate {
+class WindowController: NSWindowController, NSWindowDelegate, NSDraggingDestination {
 
     override var window: NSWindow? {
         didSet {
