@@ -28,7 +28,7 @@ extension URL {
     func resolvingAliasesInPath() -> Self {
         var result: Self? = nil
 
-        for pathComponent in standardized.pathComponents {
+        for pathComponent in pathComponents {
             result = try? Self(resolvingAliasFileAt: Self(fileURLWithPath: pathComponent, relativeTo: result))
         }
 
