@@ -19,7 +19,6 @@
 		AA63C429248AD5EE00AAF274 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C428248AD5EE00AAF274 /* Collection.swift */; };
 		AA63C42B248AD68A00AAF274 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C42A248AD68A00AAF274 /* WindowManager.swift */; };
 		AA63C42D248AD6B900AAF274 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C42C248AD6B900AAF274 /* WindowController.swift */; };
-		AA63C42F248AD6CE00AAF274 /* FieldEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */; };
 		AA63C431248AD6DD00AAF274 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C430248AD6DD00AAF274 /* TextField.swift */; };
 		AA63C433248AD6F300AAF274 /* PathField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C432248AD6F300AAF274 /* PathField.swift */; };
 		AA63C435248AD70700AAF274 /* SelectionMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA63C434248AD70700AAF274 /* SelectionMenuItem.swift */; };
@@ -46,7 +45,6 @@
 		AA63C428248AD5EE00AAF274 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		AA63C42A248AD68A00AAF274 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		AA63C42C248AD6B900AAF274 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldEditor.swift; sourceTree = "<group>"; };
 		AA63C430248AD6DD00AAF274 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		AA63C432248AD6F300AAF274 /* PathField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathField.swift; sourceTree = "<group>"; };
 		AA63C434248AD70700AAF274 /* SelectionMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionMenuItem.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				AAF80B1E249CC0B800DF9543 /* WindowType.swift */,
 				AA63C42A248AD68A00AAF274 /* WindowManager.swift */,
 				AA63C42C248AD6B900AAF274 /* WindowController.swift */,
-				AA63C42E248AD6CE00AAF274 /* FieldEditor.swift */,
 				AAFD62AA248C31B800311DE3 /* TextFieldCell.swift */,
 				AA63C430248AD6DD00AAF274 /* TextField.swift */,
 				AA63C432248AD6F300AAF274 /* PathField.swift */,
@@ -216,7 +213,6 @@
 				AA63C42B248AD68A00AAF274 /* WindowManager.swift in Sources */,
 				AA63C421248AD59500AAF274 /* NSTextField.swift in Sources */,
 				AA63C41F248AD58100AAF274 /* NSTextView.swift in Sources */,
-				AA63C42F248AD6CE00AAF274 /* FieldEditor.swift in Sources */,
 				AA63C433248AD6F300AAF274 /* PathField.swift in Sources */,
 				AA63C429248AD5EE00AAF274 /* Collection.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ import Cocoa
 
 class TextFieldCell: NSTextFieldCell {
 
-    private static var fieldEditor: FieldEditor?
+    private static var fieldEditor: NSTextView?
 
     override func fieldEditor(for view: NSView) -> NSTextView? {
         guard view is TextField else { return nil }
