@@ -9,7 +9,7 @@ import Cocoa
 
 class TextField: NSTextField, NSTextViewDelegate {
 
-    let uniqueUndoManager = UndoManager()
+    private let uniqueUndoManager = UndoManager()
 
     func undoManager(for view: NSTextView) -> UndoManager? {
         return uniqueUndoManager

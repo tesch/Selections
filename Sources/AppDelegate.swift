@@ -33,25 +33,25 @@ extension AppDelegate {
 
 extension AppDelegate {
 
-    @IBAction func showAboutWindow(_ sender: Any) {
+    @IBAction private func showAboutWindow(_ sender: Any) {
         manager.createWindow(ofType: .about)
     }
 
-    @IBAction func showInfo(_ sender: Any) {
+    @IBAction private func showInfo(_ sender: Any) {
         if let url = URL(string: "https://github.com/tesch/selections") {
             NSWorkspace.shared.open(url)
         }
     }
 
-    @IBAction func createWindow(_ sender: Any) {
+    @IBAction private func createWindow(_ sender: Any) {
         manager.createWindow(ofType: .regular)
     }
 
-    @IBAction func closeWindow(_ sender: Any) {
+    @IBAction private func closeWindow(_ sender: Any) {
         manager.closeWindow()
     }
 
-    @IBAction func closeAllWindows(_ sender: Any) {
+    @IBAction private func closeAllWindows(_ sender: Any) {
         manager.closeAllWindows()
     }
 

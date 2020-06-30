@@ -1,5 +1,5 @@
 //
-// SelectionMenu.swift
+// Menu.swift
 //
 // Created by Marcel Tesch on 2020-06-05.
 // Think different.
@@ -7,16 +7,16 @@
 
 import Cocoa
 
-class SelectionMenu<Element>: NSMenu {
+class Menu<Element>: NSMenu {
 
     private var result: Element?
 
 }
 
-extension SelectionMenu {
+extension Menu {
 
     func addItem(title: NSAttributedString, value: Element) {
-        let item = SelectionMenuItem()
+        let item = MenuItem()
 
         item.attributedTitle = title
 

@@ -9,9 +9,9 @@ import Cocoa
 
 class WindowManager {
 
-    let storyboard: NSStoryboard = .init(name: "Main", bundle: nil)
+    private let storyboard: NSStoryboard = .init(name: "Main", bundle: nil)
 
-    var controllers: Array<(controller: NSWindowController, type: WindowType)> = []
+    private var controllers: Array<(controller: NSWindowController, type: WindowType)> = []
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -33,7 +33,7 @@ extension WindowManager {
 
 extension WindowManager {
 
-    func registerController(_ controller: NSWindowController, ofType type: WindowType) {
+    private func registerController(_ controller: NSWindowController, ofType type: WindowType) {
         if !contains(controller) {
             NotificationCenter.default.addObserver(self, selector: #selector(closeWindow), name: NSWindow.willCloseNotification, object: controller.window)
 
@@ -41,7 +41,7 @@ extension WindowManager {
         }
     }
 
-    func unregisterController(_ controller: NSWindowController) {
+    private func unregisterController(_ controller: NSWindowController) {
         if let index = index(of: controller) {
             NotificationCenter.default.removeObserver(self, name: NSWindow.willCloseNotification, object: controller.window)
 

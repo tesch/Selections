@@ -9,9 +9,9 @@ import Cocoa
 
 class HiddenFilesMenuItem: NSMenuItem {
 
-    static let includeLabel = "Include Hidden Files"
+    private static let includeLabel = "Include Hidden Files"
 
-    static let excludeLabel = "Exclude Hidden Files"
+    private static let excludeLabel = "Exclude Hidden Files"
 
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -31,7 +31,7 @@ class HiddenFilesMenuItem: NSMenuItem {
 
 extension HiddenFilesMenuItem {
 
-    @objc func performAction() {
+    @objc private func performAction() {
         switch title {
         case Self.includeLabel:
             title = Self.excludeLabel
