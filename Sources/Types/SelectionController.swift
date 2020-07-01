@@ -9,76 +9,55 @@ import Foundation
 
 class SelectionController {
 
-    enum Selection {
+    private let queue = DispatchQueue(label: "de.marceltesch.selections.update", qos: .userInteractive)
 
-        case invalidPath
+    var content: Array<URL>?
 
-        case emptyDirectory
-
-        case emptySelection
-
-        case matches(Array<URL>)
-
-    }
-
-    var selection: Selection = .invalidPath
+    var matches: Array<URL>?
 
     weak var viewController: ViewController!
 
-    init(_ viewController: ViewController) {
+    init(_ viewController: ViewController, block: (() -> ())? = nil) {
         self.viewController = viewController
 
-        createSelection()
+        update(block)
     }
 
 }
 
 extension SelectionController {
 
-    var matches: Array<URL>? {
-        switch selection {
-        case .matches(let matches):
-            return matches
-        default:
-            return nil
+    func updateContent(_ block: (() -> ())? = nil) {
+        queue.async {
+            let result = self.viewController.pathField.url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles)
+
+            DispatchQueue.main.async {
+                self.content = result
+
+                block?()
+            }
         }
     }
 
-    var matchesCount: Int { (matches?.count ?? 0) }
+    func updateMatches(_ block: (() -> ())? = nil) {
+        queue.async {
+            let pattern = self.viewController.patternField.stringValue
 
-    var directoryCount: Int { matches?.filter(\.resolvesToDirectoryPath).count ?? 0 }
+            let result = self.content?.filter { url in url.lastPathComponent.range(of: pattern, options: .regularExpression) != nil }
+                                      .sorted { lhs, rhs in lhs.lastPathComponent < rhs.lastPathComponent }
 
-    var fileCount: Int { matchesCount - directoryCount }
+            DispatchQueue.main.async {
+                self.matches = result
 
-}
-
-extension SelectionController {
-
-    func createSelection() {
-        guard let contents = viewController.pathField.url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles) else {
-            selection = .invalidPath
-
-            return
+                block?()
+            }
         }
+    }
 
-        guard !contents.isEmpty else {
-            selection = .emptyDirectory
-
-            return
+    func update(_ block: (() -> ())? = nil) {
+        updateContent {
+            self.updateMatches(block)
         }
-
-        let pattern = viewController.patternField.stringValue
-
-        let matches = contents.filter { url in url.lastPathComponent.range(of: pattern, options: .regularExpression) != nil }
-                              .sorted { lhs, rhs in lhs.lastPathComponent < rhs.lastPathComponent }
-
-        guard !matches.isEmpty else {
-            selection = .emptySelection
-
-            return
-        }
-
-        selection = .matches(matches)
     }
 
 }

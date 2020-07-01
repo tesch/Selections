@@ -20,7 +20,7 @@ class TableViewController: NSObject, NSTableViewDelegate, NSTableViewDataSource 
 extension TableViewController {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return viewController.selectionController.matchesCount
+        return viewController.selectionController.matches?.count ?? 0
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row index: Int) -> NSView? {

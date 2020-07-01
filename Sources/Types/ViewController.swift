@@ -24,26 +24,25 @@ class ViewController: NSViewController {
 
     let menuController = MenuController<String>()
 
+}
+
+extension ViewController {
+
+    private func updateTable() {
+        tableView.reloadData()
+
+        infoLabel.stringValue = "\(selectionController.matches?.count ?? 0) of \(selectionController.content?.count ?? 0)"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        selectionController = .init(self)
+        selectionController = .init(self) { [unowned self] in self.updateTable() }
 
-        let block = { [unowned self] in
-            self.selectionController.createSelection()
-
-            self.tableView.reloadData()
-
-            let fileCount = self.selectionController.fileCount
-            let directoryCount = self.selectionController.directoryCount
-
-            self.infoLabel.stringValue = "\(fileCount) file\(fileCount == 1 ? "" : "s"), \(directoryCount) folder\(directoryCount == 1 ? "" : "s")"
-        }
-
-        pathFieldDelegate = .init(self, block)
+        pathFieldDelegate = .init(self) { [unowned self] in self.selectionController.update { self.updateTable() } }
         pathField.delegate = pathFieldDelegate
 
-        patternFieldDelegate = .init(self, block)
+        patternFieldDelegate = .init(self) { [unowned self] in self.selectionController.updateMatches { self.updateTable() } }
         patternField.delegate = patternFieldDelegate
 
         tableViewController = .init(self)
@@ -86,16 +85,25 @@ extension ViewController {
     }
 
     @IBAction private func createSelection(_ sender: Any) {
-        switch selectionController.selection {
-        case .invalidPath:
+        guard let content = selectionController.content, let matches = selectionController.matches else {
             presentAlert(title: "Invalid Path", text: "The given path does not correspond to an existing directory.", style: .critical)
-        case .emptyDirectory:
-            presentAlert(title: "Empty Directory", text: "The given directory does not contain any items.")
-        case .emptySelection:
-            presentAlert(title: "Empty Selection", text: "The given pattern does not match any items.")
-        case .matches(let matches):
-            NSWorkspace.shared.activateFileViewerSelecting(matches)
+
+            return
         }
+
+        guard !content.isEmpty else {
+            presentAlert(title: "Empty Directory", text: "The given directory does not contain any items.")
+
+            return
+        }
+
+        guard !matches.isEmpty else {
+            presentAlert(title: "Empty Selection", text: "The given pattern does not match any items.")
+
+            return
+        }
+
+        NSWorkspace.shared.activateFileViewerSelecting(matches)
     }
 
 }

@@ -252,7 +252,7 @@
                 </viewController>
                 <customObject id="zoK-8e-KSj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="708"/>
+            <point key="canvasLocation" x="665" y="689"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -347,7 +347,7 @@
                                                 <rect key="frame" x="1" y="1" width="548" height="178"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Qve-4y-Llw">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Qve-4y-Llw">
                                                         <rect key="frame" x="0.0" y="0.0" width="548" height="178"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -367,11 +367,11 @@
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView identifier="TableCellView" id="4EV-4Z-VUV">
-                                                                        <rect key="frame" x="1" y="1" width="540" height="17"/>
+                                                                        <rect key="frame" x="1" y="1" width="545" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="sxd-0J-q3d">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="540" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="545" height="17"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="17" id="vAV-XJ-ymx"/>
                                                                                 </constraints>
@@ -398,7 +398,7 @@
                                                 </subviews>
                                             </clipView>
                                             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="q0u-l9-f3S">
-                                                <rect key="frame" x="1" y="163" width="540" height="16"/>
+                                                <rect key="frame" x="1" y="163" width="543" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="eTI-fK-ONi">
@@ -407,8 +407,8 @@
                                             </scroller>
                                         </scrollView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27F-uC-wyd">
-                                            <rect key="frame" x="234" y="5" width="102" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" title="0 files, 0 folders" id="KHh-9R-NDv">
+                                            <rect key="frame" x="265" y="5" width="40" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" title="0 of 0" id="KHh-9R-NDv">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
