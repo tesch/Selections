@@ -17,8 +17,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var patternField: TextField!
     var patternFieldDelegate: TextFieldDelegate!
 
-    @IBOutlet weak var outlineView: NSOutlineView!
-    var outlineViewController: OutlineViewController!
+    @IBOutlet weak var tableView: NSTableView!
+    var tableViewController: TableViewController!
 
     @IBOutlet weak var infoLabel: NSTextField!
 
@@ -32,7 +32,7 @@ class ViewController: NSViewController {
         let block = { [unowned self] in
             self.selectionController.createSelection()
 
-            self.outlineView.reloadData()
+            self.tableView.reloadData()
 
             self.infoLabel.stringValue = "\(self.selectionController.fileCount) files, \(self.selectionController.directoryCount) folders"
         }
@@ -43,9 +43,9 @@ class ViewController: NSViewController {
         patternFieldDelegate = .init(self, block)
         patternField.delegate = patternFieldDelegate
 
-        outlineViewController = .init(self)
-        outlineView.delegate = outlineViewController
-        outlineView.dataSource = outlineViewController
+        tableViewController = .init(self)
+        tableView.delegate = tableViewController
+        tableView.dataSource = tableViewController
     }
 
 }

@@ -44,9 +44,11 @@ extension SelectionController {
         }
     }
 
-    var directoryCount: Int { matches?.filter(\.hasDirectoryPath).count ?? 0 }
+    var matchesCount: Int { (matches?.count ?? 0) }
 
-    var fileCount: Int { (matches?.count ?? 0) - directoryCount }
+    var directoryCount: Int { matches?.filter(\.resolvesToDirectoryPath).count ?? 0 }
+
+    var fileCount: Int { matchesCount - directoryCount }
 
 }
 
