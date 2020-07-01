@@ -34,7 +34,10 @@ class ViewController: NSViewController {
 
             self.tableView.reloadData()
 
-            self.infoLabel.stringValue = "\(self.selectionController.fileCount) files, \(self.selectionController.directoryCount) folders"
+            let fileCount = self.selectionController.fileCount
+            let directoryCount = self.selectionController.directoryCount
+
+            self.infoLabel.stringValue = "\(fileCount) file\(fileCount == 1 ? "" : "s"), \(directoryCount) folder\(directoryCount == 1 ? "" : "s")"
         }
 
         pathFieldDelegate = .init(self, block)
