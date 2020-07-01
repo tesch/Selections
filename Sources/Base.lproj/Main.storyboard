@@ -275,9 +275,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <connections>
-                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="Aec-QF-Tad"/>
-                                            </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M36-hJ-bw3">
                                             <rect key="frame" x="477" y="3" width="89" height="32"/>
@@ -369,7 +366,7 @@
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
-                                                                    <tableCellView id="zEG-v4-ohl">
+                                                                    <tableCellView identifier="TableCellView" id="zEG-v4-ohl">
                                                                         <rect key="frame" x="1" y="1" width="545" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
@@ -441,6 +438,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="infoLabel" destination="27F-uC-wyd" id="S9g-f4-5Dv"/>
+                        <outlet property="outlineView" destination="7mF-PM-5nT" id="Iwu-Fn-wGP"/>
                         <outlet property="pathField" destination="sId-3H-8Xb" id="2NL-Fb-8uh"/>
                         <outlet property="patternField" destination="DOl-ji-M6Q" id="yMg-4R-GnC"/>
                     </connections>

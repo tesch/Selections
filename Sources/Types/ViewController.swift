@@ -9,11 +9,44 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    var selectionController: SelectionController!
+
     @IBOutlet weak var pathField: PathField!
+    var pathFieldDelegate: PathFieldDelegate!
 
     @IBOutlet weak var patternField: TextField!
+    var patternFieldDelegate: TextFieldDelegate!
 
-    private let menuController = MenuController<String>()
+    @IBOutlet weak var outlineView: NSOutlineView!
+    var outlineViewController: OutlineViewController!
+
+    @IBOutlet weak var infoLabel: NSTextField!
+
+    let menuController = MenuController<String>()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        selectionController = .init(self)
+
+        let block = { [unowned self] in
+            self.selectionController.createSelection()
+
+            self.outlineView.reloadData()
+
+            self.infoLabel.stringValue = "\(self.selectionController.fileCount) files, \(self.selectionController.directoryCount) folders"
+        }
+
+        pathFieldDelegate = .init(self, block)
+        pathField.delegate = pathFieldDelegate
+
+        patternFieldDelegate = .init(self, block)
+        patternField.delegate = patternFieldDelegate
+
+        outlineViewController = .init(self)
+        outlineView.delegate = outlineViewController
+        outlineView.dataSource = outlineViewController
+    }
 
 }
 
@@ -50,68 +83,16 @@ extension ViewController {
     }
 
     @IBAction private func createSelection(_ sender: Any) {
-        guard let contents = pathField.url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles) else {
+        switch selectionController.selection {
+        case .invalidPath:
             presentAlert(title: "Invalid Path", text: "The given path does not correspond to an existing directory.", style: .critical)
-
-            return
-        }
-
-        guard !contents.isEmpty else {
+        case .emptyDirectory:
             presentAlert(title: "Empty Directory", text: "The given directory does not contain any items.")
-
-            return
-        }
-
-        let selection = contents.select(with: patternField.stringValue)
-
-        guard !selection.isEmpty else {
+        case .emptySelection:
             presentAlert(title: "Empty Selection", text: "The given pattern does not match any items.")
-
-            return
+        case .matches(let matches):
+            NSWorkspace.shared.activateFileViewerSelecting(matches)
         }
-
-        NSWorkspace.shared.activateFileViewerSelecting(selection)
-    }
-
-}
-
-extension ViewController: NSTextFieldDelegate {
-
-    func control(_ control: NSControl, textView: NSTextView, doCommandBy selector: Selector) -> Bool {
-        switch selector {
-        case #selector(insertNewline):
-            textView.insertTab(self)
-
-        case #selector(insertTab):
-            pathField.updatePartialString { prefixPath, suffixPath in
-                guard let url = URL(fileURLWithAbsolutePath: prefixPath.expandingTilde) else { return "" }
-
-                let (prefix, prediction, completions) = url.predictDirectoryPaths(hasTrailingSlash: prefixPath.hasSuffix("/"), includeHiddenFiles: Preferences.includeHiddenFiles)
-
-                let suffix = suffixPath.hasPrefix("/") ? "" : "/"
-
-                var options = Dictionary<String, String>()
-
-                for completion in completions {
-                    options[prefix + completion] = completion
-                }
-
-                let offset = -prefix.count
-
-                if completions.count > 1, let completion = menuController.presentMenu(withOptions: options, at: offset, for: textView) {
-                    return completion + suffix
-                } else if completions.count == 1 {
-                    return prediction + suffix
-                }
-
-                return ""
-            }
-
-        default:
-            textView.perform(selector, with: self)
-        }
-
-        return true
     }
 
 }

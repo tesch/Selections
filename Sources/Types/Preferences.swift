@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Preferences {
+enum Preferences {
 
     static let hiddenFilesKey = "IncludeHiddenFilesKey"
 
