@@ -28,8 +28,10 @@ class SelectionController {
 extension SelectionController {
 
     func updateContent(_ block: (() -> ())? = nil) {
+        let url = self.viewController.pathField.url
+
         queue.async {
-            let result = self.viewController.pathField.url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles)
+            let result = url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles)
 
             DispatchQueue.main.async {
                 self.content = result
@@ -40,9 +42,9 @@ extension SelectionController {
     }
 
     func updateMatches(_ block: (() -> ())? = nil) {
-        queue.async {
-            let pattern = self.viewController.patternField.stringValue
+        let pattern = self.viewController.patternField.stringValue
 
+        queue.async {
             let result = self.content?.filter { url in url.lastPathComponent.range(of: pattern, options: .regularExpression) != nil }
                                       .sorted { lhs, rhs in lhs.lastPathComponent < rhs.lastPathComponent }
 
