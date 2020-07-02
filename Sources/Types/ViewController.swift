@@ -12,13 +12,13 @@ class ViewController: NSViewController {
     var selectionController: SelectionController!
 
     @IBOutlet weak var pathField: PathField!
-    var pathFieldDelegate: PathFieldDelegate!
+    private var pathFieldDelegate: PathFieldDelegate!
 
     @IBOutlet weak var patternField: TextField!
-    var patternFieldDelegate: TextFieldDelegate!
+    private var patternFieldDelegate: TextFieldDelegate!
 
     @IBOutlet weak var tableView: NSTableView!
-    var tableViewController: TableViewController!
+    private var tableViewController: TableViewController!
 
     @IBOutlet weak var infoLabel: NSTextField!
 

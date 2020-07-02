@@ -9,7 +9,7 @@ import Cocoa
 
 class TableViewController: NSObject, NSTableViewDelegate, NSTableViewDataSource {
 
-    weak var viewController: ViewController!
+    private weak var viewController: ViewController!
 
     init(_ viewController: ViewController) {
         self.viewController = viewController

@@ -15,7 +15,7 @@ class SelectionController {
 
     var matches: Array<URL>?
 
-    weak var viewController: ViewController!
+    private weak var viewController: ViewController!
 
     init(_ viewController: ViewController, block: (() -> ())? = nil) {
         self.viewController = viewController
