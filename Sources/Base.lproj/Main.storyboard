@@ -106,6 +106,12 @@
                                                 <action selector="selectAll:" target="Ady-hI-5gd" id="8eE-d0-5b7"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Deselect All" alternate="YES" keyEquivalent="a" id="gsC-zr-83a">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="deselectAll:" target="Ady-hI-5gd" id="wGT-7s-qTR"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="w10-Vw-UzQ"/>
                                         <menuItem title="Include Hidden Files" keyEquivalent="H" id="L7K-ek-dFo" customClass="HiddenFilesMenuItem" customModule="Selections" customModuleProvider="target"/>
                                     </items>
