@@ -65,7 +65,7 @@ extension WindowManager {
             let controller = instantiateController(ofType: .regular)
 
             if let frame = NSApp.mainWindow?.frame {
-                let point = NSPoint(x: frame.minX, y: frame.minY - 15)
+                let point = NSPoint(x: frame.minX + 100, y: frame.minY + frame.height)
 
                 controller.window?.cascadeTopLeft(from: point)
             }
