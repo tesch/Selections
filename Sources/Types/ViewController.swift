@@ -7,6 +7,8 @@
 
 import Cocoa
 
+import Quartz
+
 class ViewController: NSViewController {
 
     var selectionController: SelectionController!
@@ -104,6 +106,24 @@ extension ViewController {
         }
 
         NSWorkspace.shared.activateFileViewerSelecting(matches)
+    }
+
+}
+
+extension ViewController {
+
+    override func acceptsPreviewPanelControl(_ panel: QLPreviewPanel!) -> Bool {
+        return true
+    }
+
+    override func beginPreviewPanelControl(_ panel: QLPreviewPanel!) {
+        panel.delegate = tableViewController
+        panel.dataSource = tableViewController
+    }
+
+    override func endPreviewPanelControl(_ panel: QLPreviewPanel!) {
+        panel.delegate = nil
+        panel.dataSource = nil
     }
 
 }

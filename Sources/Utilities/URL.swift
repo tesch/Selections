@@ -55,7 +55,7 @@ extension URL {
         return includeHiddenFiles ? contents : contents.filter(\.isVisible)
     }
 
-    var directoriesInDirectory: Array<Self>? { contentsOfDirectory()?.filter(\.resolvesToDirectoryPath) }
+    var directoriesInDirectory: Array<Self>? { standardized.contentsOfDirectory()?.filter(\.resolvesToDirectoryPath) }
 
 }
 

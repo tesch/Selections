@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class TextFieldDelegate: NSObject, NSTextFieldDelegate {
+class TextFieldDelegate: NSObject {
 
     weak var viewController: ViewController!
 
@@ -21,7 +21,7 @@ class TextFieldDelegate: NSObject, NSTextFieldDelegate {
 
 }
 
-extension TextFieldDelegate {
+extension TextFieldDelegate: NSTextFieldDelegate {
 
     func controlTextDidChange(_ notification: Notification) {
         block()
