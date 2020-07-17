@@ -35,35 +35,9 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
 
 extension TableViewController {
 
-    func tableView(_ tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool {
-        let modifier = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
-
-        if event.type == .keyDown, event.keyCode == 49 {
-            quicklook(fullscreen: modifier == .option)
-
-            return false
-        }
-
-        return true
-    }
-
-    func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
-        if event.type == .keyDown, event.keyCode == 125 || event.keyCode == 126 {
-            viewController.tableView.keyDown(with: event)
-
-            return false
-        }
-
-        return true
-    }
-
-}
-
-extension TableViewController {
-
     private var panel: QLPreviewPanel? { .shared() }
 
-    func quicklook(fullscreen: Bool = false) {
+    func presentQuicklookPanel(fullscreen: Bool = false) {
         if panel?.isVisible == true {
             panel?.orderOut(self)
         } else {
@@ -79,6 +53,32 @@ extension TableViewController {
         if panel?.isVisible == true {
             panel?.reloadData()
         }
+    }
+
+}
+
+extension TableViewController {
+
+    func tableView(_ tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool {
+        if event.type == .keyDown, event.keyCode == 49 {
+            let modifier = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+
+            presentQuicklookPanel(fullscreen: modifier == .option)
+
+            return false
+        }
+
+        return true
+    }
+
+    func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
+        if event.type == .keyDown, event.keyCode == 125 || event.keyCode == 126 {
+            viewController.tableView.keyDown(with: event)
+
+            return false
+        }
+
+        return true
     }
 
 }
