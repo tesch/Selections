@@ -8,7 +8,7 @@
 
 Select a directory by either choosing from the *Open* dialog, dragging and dropping a folder onto the window, or simply by typing out a path in the upper text field with tab completion. Paths with an arbitrary combination of aliases and / or symlinks to directories are fully supported and get correctly resolved.
 
-Enter a search term into the lower text field for the items you wish to select. This can be a simple keyword or a complex pattern. Click *Select* or hit *Enter* to reveal your selection in the Finder.
+Enter a search term for the items you wish to select into the lower text field. This can be a simple keyword or a complex pattern. The matching items are shown in the list where they can be previewed with Quick Look. Click *Select* or hit *Enter* to reveal your selection in the Finder.
 
 *Undo* and *Redo* are supported for both text fields, maintaing their history even after loosing focus. Creating multiple windows works as well.
 
