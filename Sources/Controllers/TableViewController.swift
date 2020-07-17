@@ -25,16 +25,6 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
         return viewController.selectionController.matches?.count ?? 0
     }
 
-//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row index: Int) -> NSView? {
-//        guard let matches = viewController.selectionController.matches, matches.indices.contains(index) else { return nil }
-//
-//        guard let view = tableView.makeView(withIdentifier: .init("TableCellView"), owner: self) as? NSTableCellView else { return nil }
-//
-//        view.textField?.stringValue = matches[index].lastPathComponent
-//
-//        return view
-//    }
-
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row index: Int) -> Any? {
         guard let matches = viewController.selectionController.matches, matches.indices.contains(index) else { return nil }
 
