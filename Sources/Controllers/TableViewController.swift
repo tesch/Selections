@@ -35,7 +35,7 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
 
 extension TableViewController {
 
-    @objc func handleDoubleClick(_ sender: Any) {
+    @objc func openSelectedItems() {
         let urls = viewController.tableView.selectedRowIndexes.compactMap { index in viewController.selectionController.matches?[checked: index] }
 
         urls.open()
@@ -67,32 +67,6 @@ extension TableViewController {
 
 }
 
-extension TableViewController {
-
-    func tableView(_ tableView: NSTableView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool {
-        if event.type == .keyDown, event.keyCode == 49 {
-            let modifier = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
-
-            presentQuicklookPanel(fullscreen: modifier == .option)
-
-            return false
-        }
-
-        return true
-    }
-
-    func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
-        if event.type == .keyDown, event.keyCode == 125 || event.keyCode == 126 {
-            viewController.tableView.keyDown(with: event)
-
-            return false
-        }
-
-        return true
-    }
-
-}
-
 extension TableViewController: QLPreviewPanelDelegate, QLPreviewPanelDataSource {
 
     func numberOfPreviewItems(in panel: QLPreviewPanel!) -> Int {
@@ -109,6 +83,20 @@ extension TableViewController: QLPreviewPanelDelegate, QLPreviewPanelDataSource 
 
             return viewController.selectionController.matches![index] as NSURL
         }
+    }
+
+}
+
+extension TableViewController {
+
+    func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
+        if event.type == .keyDown, event.keyCode == 125 || event.keyCode == 126 {
+            viewController.tableView.keyDown(with: event)
+
+            return false
+        }
+
+        return true
     }
 
 }

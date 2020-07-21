@@ -50,7 +50,7 @@ extension ViewController {
         tableViewController = .init(self)
 
         tableView.target = tableViewController
-        tableView.doubleAction = #selector(tableViewController.handleDoubleClick)
+        tableView.doubleAction = #selector(tableViewController.openSelectedItems)
 
         tableView.delegate = tableViewController
         tableView.dataSource = tableViewController
