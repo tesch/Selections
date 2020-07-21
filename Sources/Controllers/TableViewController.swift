@@ -26,9 +26,19 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row index: Int) -> Any? {
-        guard let matches = viewController.selectionController.matches, matches.indices.contains(index) else { return nil }
+        guard let url = viewController.selectionController.matches?[checked: index] else { return nil }
 
-        return matches[index].lastPathComponent
+        return url.lastPathComponent
+    }
+
+}
+
+extension TableViewController {
+
+    @objc func handleDoubleClick(_ sender: Any) {
+        let urls = viewController.tableView.selectedRowIndexes.compactMap { index in viewController.selectionController.matches?[checked: index] }
+
+        urls.open()
     }
 
 }
@@ -100,6 +110,10 @@ extension TableViewController: QLPreviewPanelDelegate, QLPreviewPanelDataSource 
             return viewController.selectionController.matches![index] as NSURL
         }
     }
+
+}
+
+extension TableViewController {
 
     func previewPanel(_ panel: QLPreviewPanel!, sourceFrameOnScreenFor item: QLPreviewItem!) -> NSRect {
         let frame: NSRect

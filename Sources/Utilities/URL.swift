@@ -5,7 +5,7 @@
 // Think different.
 //
 
-import Foundation
+import Cocoa
 
 extension URL {
 
@@ -19,6 +19,14 @@ extension URL {
         guard path.hasPrefix("/") else { return nil }
 
         self.init(fileURLWithPath: path)
+    }
+
+}
+
+extension URL {
+
+    func open() {
+        NSWorkspace.shared.open(self)
     }
 
 }

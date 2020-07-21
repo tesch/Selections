@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA152C1524ABE73B009B76B0 /* PathFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA152C1424ABE73B009B76B0 /* PathFieldDelegate.swift */; };
 		AA152C1724ABE959009B76B0 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA152C1624ABE959009B76B0 /* TextFieldDelegate.swift */; };
+		AA2AFD8B24C6F5E100CA08FD /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2AFD8A24C6F5E100CA08FD /* Array.swift */; };
 		AA45627A24ACC4EF004395BC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45627924ACC4EF004395BC /* TableViewController.swift */; };
 		AA491D32248AC2D300F4C4E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA491D31248AC2D300F4C4E2 /* AppDelegate.swift */; };
 		AA491D34248AC2D300F4C4E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA491D33248AC2D300F4C4E2 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		AA152C1424ABE73B009B76B0 /* PathFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathFieldDelegate.swift; sourceTree = "<group>"; };
 		AA152C1624ABE959009B76B0 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		AA2AFD8A24C6F5E100CA08FD /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		AA45627924ACC4EF004395BC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AA491D2E248AC2D300F4C4E2 /* Selections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA491D31248AC2D300F4C4E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				AA63C422248AD5A800AAF274 /* URL.swift */,
+				AA2AFD8A24C6F5E100CA08FD /* Array.swift */,
 				AA63C424248AD5C600AAF274 /* String.swift */,
 				AA63C428248AD5EE00AAF274 /* Collection.swift */,
 			);
@@ -263,6 +266,7 @@
 				AAB7DECC24AC8D2700FDBADD /* SelectionController.swift in Sources */,
 				AA63C423248AD5A800AAF274 /* URL.swift in Sources */,
 				AA8580802493DB0C009DDE6F /* HiddenFilesMenuItem.swift in Sources */,
+				AA2AFD8B24C6F5E100CA08FD /* Array.swift in Sources */,
 				AA934F8624AB54E2003A809B /* MenuController.swift in Sources */,
 				AA63C431248AD6DD00AAF274 /* TextField.swift in Sources */,
 				AAFD62AB248C31B800311DE3 /* TextFieldCell.swift in Sources */,
@@ -424,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = de.marceltesch.Selections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -446,7 +450,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = de.marceltesch.Selections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

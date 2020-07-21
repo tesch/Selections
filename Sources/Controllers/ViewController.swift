@@ -48,6 +48,10 @@ extension ViewController {
         patternField.delegate = patternFieldDelegate
 
         tableViewController = .init(self)
+
+        tableView.target = tableViewController
+        tableView.doubleAction = #selector(tableViewController.handleDoubleClick)
+
         tableView.delegate = tableViewController
         tableView.dataSource = tableViewController
     }

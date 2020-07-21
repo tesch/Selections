@@ -38,9 +38,7 @@ extension AppDelegate {
     }
 
     @IBAction private func showInfo(_ sender: Any) {
-        if let url = URL(string: "https://github.com/tesch/selections") {
-            NSWorkspace.shared.open(url)
-        }
+        URL(string: "https://github.com/tesch/selections")?.open()
     }
 
     @IBAction private func createWindow(_ sender: Any) {
