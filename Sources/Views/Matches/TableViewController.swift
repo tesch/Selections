@@ -19,6 +19,12 @@ class TableViewController: NSObject {
 
 }
 
+extension TableViewController {
+
+    private var urls: Array<URL> { viewController.tableView.selectedRowIndexes.compactMap { index in viewController.selectionController.matches?[checked: index] } }
+    
+}
+
 extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -36,9 +42,16 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
 extension TableViewController {
 
     @objc func openSelectedItems() {
-        let urls = viewController.tableView.selectedRowIndexes.compactMap { index in viewController.selectionController.matches?[checked: index] }
-
         urls.open()
+    }
+
+    func copySelectedItemPaths() {
+        NSPasteboard.general.clearContents()
+
+        let result = urls.map { url in url.path }
+                         .joined(separator: "\n")
+
+        NSPasteboard.general.setString(result, forType: .string)
     }
 
 }

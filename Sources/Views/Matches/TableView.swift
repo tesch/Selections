@@ -9,10 +9,10 @@ import Cocoa
 
 class TableView: NSTableView {
 
+    var controller: TableViewController { delegate as! TableViewController }
+
     override func keyDown(with event: NSEvent) {
         let modifier = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
-
-        let controller = delegate as! TableViewController
 
         if event.keyCode == 49 {
             controller.presentQuicklookPanel(fullscreen: modifier == .option)
@@ -21,6 +21,18 @@ class TableView: NSTableView {
         } else {
             super.keyDown(with: event)
         }
+    }
+
+}
+
+extension TableView {
+
+    @IBAction func openMenuItem(_ sender: Any) {
+        controller.openSelectedItems()
+    }
+
+    @IBAction func copyMenuItem(_ sender: Any) {
+        controller.copySelectedItemPaths()
     }
 
 }

@@ -369,6 +369,9 @@
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <outlet property="menu" destination="7dt-Of-PHh" id="M6y-El-BvL"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                             </clipView>
@@ -423,6 +426,22 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="7dt-Of-PHh">
+                    <items>
+                        <menuItem title="Open" id="FlU-FV-fgo">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openMenuItem:" target="Qve-4y-Llw" id="w0u-AN-qzy"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Copy Path" id="5In-IL-UZY">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="copyMenuItem:" target="Qve-4y-Llw" id="I4L-0d-p3y"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="796"/>
         </scene>

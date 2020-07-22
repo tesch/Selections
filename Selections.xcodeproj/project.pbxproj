@@ -83,7 +83,6 @@
 			children = (
 				AA491D33248AC2D300F4C4E2 /* ViewController.swift */,
 				AAB7DECB24AC8D2700FDBADD /* SelectionController.swift */,
-				AA45627924ACC4EF004395BC /* TableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				AA2AFD8D24C703C400CA08FD /* TableView.swift */,
+				AA45627924ACC4EF004395BC /* TableViewController.swift */,
 			);
 			path = Matches;
 			sourceTree = "<group>";
