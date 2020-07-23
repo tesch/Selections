@@ -23,6 +23,14 @@ class TableView: NSTableView {
         }
     }
 
+    override func willOpenMenu(_ menu: NSMenu, with event: NSEvent) {
+        if selectedRowIndexes.contains(clickedRow), selectedRowIndexes.count > 1 {
+            menu.items[1].title = "Copy Paths"
+        } else {
+            menu.items[1].title = "Copy Path"
+        }
+    }
+
 }
 
 extension TableView {
