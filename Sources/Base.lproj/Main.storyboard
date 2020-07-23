@@ -431,7 +431,7 @@
                         <menuItem title="Open" id="FlU-FV-fgo">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="openMenuItem:" target="Qve-4y-Llw" id="w0u-AN-qzy"/>
+                                <action selector="openMenuItem:" target="Qve-4y-Llw" id="BxJ-Lx-ZM1"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Copy Path" id="5In-IL-UZY">

@@ -7,14 +7,6 @@
 
 import Cocoa
 
-extension Array {
-
-    subscript(checked index: Int) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-
-}
-
 extension Array where Element == URL {
 
     func open() {

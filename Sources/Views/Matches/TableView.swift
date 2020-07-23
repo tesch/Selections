@@ -36,7 +36,7 @@ class TableView: NSTableView {
 extension TableView {
 
     @IBAction func openMenuItem(_ sender: Any) {
-        controller.openSelectedItems()
+        controller.openClickedItems()
     }
 
     @IBAction func copyMenuItem(_ sender: Any) {

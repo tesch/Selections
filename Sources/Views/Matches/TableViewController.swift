@@ -21,8 +21,14 @@ class TableViewController: NSObject {
 
 extension TableViewController {
 
-    private var urls: Array<URL> { viewController.tableView.selectedRowIndexes.compactMap { index in viewController.selectionController.matches?[checked: index] } }
-    
+    private func url(at index: Int) -> URL {
+        return viewController.selectionController.matches![index]
+    }
+
+    private var selectedURLs: Array<URL> { viewController.tableView.selectedRowIndexes.map { index in url(at: index) } }
+
+    private var clickedURL: URL { url(at: viewController.tableView.clickedRow) }
+
 }
 
 extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
@@ -32,24 +38,38 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row index: Int) -> Any? {
-        guard let url = viewController.selectionController.matches?[checked: index] else { return nil }
-
-        return url.lastPathComponent
+        return url(at: index).lastPathComponent
     }
 
 }
 
 extension TableViewController {
 
+    private var clickedRowInSelection: Bool { viewController.tableView.selectedRowIndexes.contains(viewController.tableView.clickedRow) }
+
     @objc func openSelectedItems() {
-        urls.open()
+        selectedURLs.open()
+    }
+
+    func openClickedItems() {
+        if clickedRowInSelection {
+            openSelectedItems()
+        } else {
+            clickedURL.open()
+        }
     }
 
     func copySelectedItemPaths() {
         NSPasteboard.general.clearContents()
 
-        let result = urls.map { url in url.path }
-                         .joined(separator: "\n")
+        let result: String
+
+        if clickedRowInSelection {
+            result = selectedURLs.map { url in url.path }
+                                 .joined(separator: "\n")
+        } else {
+            result = clickedURL.path
+        }
 
         NSPasteboard.general.setString(result, forType: .string)
     }
