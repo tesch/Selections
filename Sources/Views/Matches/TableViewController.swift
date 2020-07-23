@@ -13,6 +13,8 @@ class TableViewController: NSObject {
 
     private weak var viewController: ViewController!
 
+    private var tableView: TableView { viewController.tableView }
+
     init(_ viewController: ViewController) {
         self.viewController = viewController
     }
@@ -25,9 +27,9 @@ extension TableViewController {
         return viewController.selectionController.matches![index]
     }
 
-    private var selectedURLs: Array<URL> { viewController.tableView.selectedRowIndexes.map { index in url(at: index) } }
+    private var selectedURLs: Array<URL> { tableView.selectedRowIndexes.map { index in url(at: index) } }
 
-    private var clickedURL: URL { url(at: viewController.tableView.clickedRow) }
+    private var clickedURL: URL { url(at: tableView.clickedRow) }
 
 }
 
@@ -45,7 +47,7 @@ extension TableViewController: NSTableViewDelegate, NSTableViewDataSource {
 
 extension TableViewController {
 
-    private var clickedRowInSelection: Bool { viewController.tableView.selectedRowIndexes.contains(viewController.tableView.clickedRow) }
+    private var clickedRowInSelection: Bool { tableView.selectedRowIndexes.contains(tableView.clickedRow) }
 
     @objc func openSelectedItems() {
         selectedURLs.open()
@@ -103,14 +105,14 @@ extension TableViewController {
 extension TableViewController: QLPreviewPanelDelegate, QLPreviewPanelDataSource {
 
     func numberOfPreviewItems(in panel: QLPreviewPanel!) -> Int {
-        return viewController.tableView.selectedRow == -1 ? 1 : viewController.tableView.selectedRowIndexes.count
+        return tableView.selectedRow == -1 ? 1 : tableView.selectedRowIndexes.count
     }
 
     func previewPanel(_ panel: QLPreviewPanel!, previewItemAt index: Int) -> QLPreviewItem! {
-        if viewController.tableView.selectedRow == -1 {
+        if tableView.selectedRow == -1 {
             return viewController.pathField.url! as NSURL
         } else {
-            let result = viewController.tableView.selectedRowIndexes
+            let result = tableView.selectedRowIndexes
 
             let index = result[result.index(result.startIndex, offsetBy: index)]
 
@@ -124,7 +126,7 @@ extension TableViewController {
 
     func previewPanel(_ panel: QLPreviewPanel!, handle event: NSEvent!) -> Bool {
         if event.type == .keyDown, event.keyCode == 125 || event.keyCode == 126 {
-            viewController.tableView.keyDown(with: event)
+            tableView.keyDown(with: event)
 
             return false
         }
@@ -139,19 +141,19 @@ extension TableViewController {
     func previewPanel(_ panel: QLPreviewPanel!, sourceFrameOnScreenFor item: QLPreviewItem!) -> NSRect {
         let frame: NSRect
 
-        if let index = viewController.tableView.selectedRowIndexes.min() {
-            let rect = viewController.tableView.rect(ofRow: index)
+        if let index = tableView.selectedRowIndexes.min() {
+            let rect = tableView.rect(ofRow: index)
 
             frame = NSRect(x: rect.minX + rect.width / 2, y: rect.minY + rect.height / 2, width: 0, height: 0)
         } else {
-            let rect = viewController.tableView.enclosingScrollView!.frame
+            let rect = tableView.enclosingScrollView!.frame
 
             frame = NSRect(x: rect.width / 2, y: rect.height / 2, width: 0, height: 0)
         }
 
-        let rectInWindow = viewController.tableView.convert(frame, to: nil)
+        let rectInWindow = tableView.convert(frame, to: nil)
 
-        let rectInScreen = viewController.tableView.window!.convertToScreen(rectInWindow)
+        let rectInScreen = tableView.window!.convertToScreen(rectInWindow)
 
         return rectInScreen
     }

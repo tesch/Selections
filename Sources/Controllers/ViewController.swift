@@ -19,7 +19,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var patternField: TextField!
     private var patternFieldDelegate: TextFieldDelegate!
 
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tableView: TableView!
     private var tableViewController: TableViewController!
 
     @IBOutlet weak var infoLabel: NSTextField!
