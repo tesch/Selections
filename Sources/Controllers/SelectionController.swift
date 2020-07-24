@@ -35,7 +35,7 @@ extension SelectionController {
         let url = self.viewController.pathField.url
 
         queue.async {
-            let result = url?.standardized.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles)
+            let result = url?.contentsOfDirectory(includeHiddenFiles: Preferences.includeHiddenFiles)
 
             DispatchQueue.main.async {
                 if self.contentTime < contentTime {

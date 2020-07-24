@@ -38,7 +38,7 @@ extension URL {
     var resolvingAliases: Self? {
         var result: Self? = nil
 
-        for pathComponent in pathComponents {
+        for pathComponent in standardized.pathComponents {
             guard let resolved = Self(fileURLWithPath: pathComponent, relativeTo: result).resolvingAlias else { return nil }
 
             result = resolved
@@ -69,7 +69,7 @@ extension URL {
         return includeHiddenFiles ? contents : contents.filter(\.isVisible)
     }
 
-    var directoriesInDirectory: Array<Self>? { standardized.contentsOfDirectory()?.filter(\.resolvesToDirectoryPath) }
+    var directoriesInDirectory: Array<Self>? { contentsOfDirectory()?.filter(\.resolvesToDirectoryPath) }
 
 }
 
