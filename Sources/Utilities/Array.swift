@@ -13,7 +13,7 @@ extension Array where Element == URL {
         var result = Dictionary<URL?, Array<URL>>()
 
         for url in self {
-            let url = url.resolvingAliasesInPath()
+            guard let url = url.resolvingAliases else { continue }
 
             let app = NSWorkspace.shared.urlForApplication(toOpen: url)
 

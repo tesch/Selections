@@ -33,23 +33,27 @@ extension URL {
 
 extension URL {
 
-    func resolvingAliasesInPath() -> Self {
+    var resolvingAlias: Self? { try? Self(resolvingAliasFileAt: self) }
+
+    var resolvingAliases: Self? {
         var result: Self? = nil
 
         for pathComponent in pathComponents {
-            result = try? Self(resolvingAliasFileAt: Self(fileURLWithPath: pathComponent, relativeTo: result))
+            guard let resolved = Self(fileURLWithPath: pathComponent, relativeTo: result).resolvingAlias else { return nil }
+
+            result = resolved
         }
 
-        return result ?? self
+        return result
     }
 
-    var resolvesToDirectoryPath: Bool { resolvingAliasesInPath().hasDirectoryPath }
+    var resolvesToDirectoryPath: Bool { resolvingAliases?.hasDirectoryPath ?? false }
 
 }
 
 extension URL {
 
-    var isHidden: Bool { (try? resourceValues(forKeys: [.isHiddenKey]))?.isHidden == true }
+    var isHidden: Bool { (try? resourceValues(forKeys: [.isHiddenKey]))?.isHidden ?? false }
 
     var isVisible: Bool { !isHidden }
 
@@ -58,7 +62,9 @@ extension URL {
 extension URL {
 
     func contentsOfDirectory(includeHiddenFiles: Bool = true) -> Array<Self>? {
-        guard let contents = try? FileManager.default.contentsOfDirectory(at: resolvingAliasesInPath(), includingPropertiesForKeys: [], options: []) else { return nil }
+        guard let url = resolvingAliases else { return nil }
+
+        guard let contents = try? FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: [], options: []) else { return nil }
 
         return includeHiddenFiles ? contents : contents.filter(\.isVisible)
     }
