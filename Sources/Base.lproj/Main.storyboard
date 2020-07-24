@@ -349,7 +349,7 @@
                                                 <rect key="frame" x="1" y="1" width="548" height="178"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView toolTip="Matches in Directory" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" id="Qve-4y-Llw" customClass="TableView" customModule="Selections" customModuleProvider="target">
+                                                    <tableView toolTip="Matches in Directory" focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" id="Qve-4y-Llw" customClass="TableView" customModule="Selections" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="548" height="178"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -370,7 +370,7 @@
                                                             </tableColumn>
                                                         </tableColumns>
                                                         <connections>
-                                                            <outlet property="menu" destination="7dt-Of-PHh" id="M6y-El-BvL"/>
+                                                            <outlet property="menu" destination="7dt-Of-PHh" id="N9x-sH-0MP"/>
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
@@ -431,13 +431,13 @@
                         <menuItem title="Open" id="FlU-FV-fgo">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="openMenuItem:" target="Qve-4y-Llw" id="BxJ-Lx-ZM1"/>
+                                <action selector="openMenuItem:" target="Qve-4y-Llw" id="crk-Fh-Gx7"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Copy Path" id="5In-IL-UZY">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="copyMenuItem:" target="Qve-4y-Llw" id="I4L-0d-p3y"/>
+                                <action selector="copyMenuItem:" target="Qve-4y-Llw" id="OPD-1Y-74I"/>
                             </connections>
                         </menuItem>
                     </items>
