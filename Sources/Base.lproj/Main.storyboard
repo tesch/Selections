@@ -123,7 +123,7 @@
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="qYM-j8-0Ux">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="zoom:" target="Ady-hI-5gd" id="qjg-Pz-EGE"/>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="Ivt-hb-2If"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -159,7 +159,6 @@
                 <windowController storyboardIdentifier="Regular" id="B8D-0N-5wS" customClass="WindowController" customModule="Selections" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Selections" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
                         <rect key="contentRect" x="196" y="240" width="600" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="400" height="300"/>
