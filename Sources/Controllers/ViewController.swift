@@ -31,6 +31,7 @@ class ViewController: NSViewController {
 extension ViewController {
 
     private func updateTable() {
+        tableView.deselectAll(self)
         tableView.reloadData()
 
         infoLabel.stringValue = "\(selectionController.matches?.count ?? 0) of \(selectionController.content?.count ?? 0)"
