@@ -24,7 +24,7 @@ class WindowController: NSWindowController, NSWindowDelegate, NSDraggingDestinat
     func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         guard let items = sender.draggingPasteboard.pasteboardItems, items.count == 1 else { return false }
 
-        guard let path = items.first?.propertyList(forType: .fileURL) as? String else { return false }
+        guard let path = (items.first?.propertyList(forType: .fileURL) as? String)?.removingPercentEncoding else { return false }
 
         let url = URL(fileURLWithPath: path).standardized
 
