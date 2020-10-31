@@ -30,7 +30,9 @@ extension MenuController {
 
         guard let location = menuLocation(at: offset, in: textView) else { return nil }
 
-        for title in options.keys.sorted() {
+        let block: (String, String) -> Bool = { lhs, rhs in lhs.localizedStandardCompare(rhs) == .orderedAscending }
+
+        for title in options.keys.sorted(by: block) {
             guard let value = options[title] else { continue }
 
             let title = NSAttributedString(string: title, attributes: textView.typingAttributes)
