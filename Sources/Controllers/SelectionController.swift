@@ -57,7 +57,7 @@ extension SelectionController {
 
         queue.async {
             let result = content?.filter { url in url.lastPathComponent.range(of: pattern, options: .regularExpression) != nil }
-                                 .sorted { lhs, rhs in lhs.lastPathComponent < rhs.lastPathComponent }
+                                 .sorted { lhs, rhs in lhs.lastPathComponent.localizedStandardCompare(rhs.lastPathComponent) == .orderedAscending }
 
             DispatchQueue.main.async {
                 if self.matchesTime < matchesTime {
