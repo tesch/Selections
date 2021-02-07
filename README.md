@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Logo.png" width="250", max-width="100%"/>
+    <img src="Sources/Assets.xcassets/AppIcon.appiconset/Icon.png" width="250", max-width="100%"/>
 </p>
 
 **Selections** is a Mac utility for selecting items in Finder via regular expression matching. It can be used as a search tool, to quickly move a set of files, or to bulk apply contextual menu items such as cloud sync options, for example.
